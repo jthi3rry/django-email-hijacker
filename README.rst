@@ -19,7 +19,7 @@ Installation
     pip install django-email-hijacker
 
 
-In your development ``settings.py``::
+In your development or staging ``settings.py``::
 
     EMAIL_BACKEND = "email_hijacker.backends.hijacker.EmailBackend"
     HIJACKER_EMAIL_ADDRESS = "hijacker@example.org"
