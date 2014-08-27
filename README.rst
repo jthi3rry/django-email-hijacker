@@ -2,6 +2,9 @@
 Django Email Hijacker
 =====================
 
+.. image:: https://badge.fury.io/py/django-email-hijacker.svg
+    :target: http://badge.fury.io/py/django-email-hijacker
+
 .. image:: https://travis-ci.org/OohlaLabs/django-email-hijacker.svg?branch=master
     :target: https://travis-ci.org/OohlaLabs/django-email-hijacker
 
