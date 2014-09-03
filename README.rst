@@ -54,6 +54,10 @@ All contributions and comments are welcome.
 Change Log
 ----------
 
+v0.2
+~~~~
+* Unit tests now use Django 1.7 final instead of RC1
+
 v0.1
 ~~~~
 * Initial
