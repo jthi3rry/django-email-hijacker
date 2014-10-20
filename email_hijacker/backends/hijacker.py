@@ -2,7 +2,6 @@
 
 from __future__ import unicode_literals
 
-from django.conf import settings
 from django.core.mail.backends.base import BaseEmailBackend
 
 try:
@@ -10,12 +9,14 @@ try:
 except ImportError:
     from django.utils.module_loading import import_by_path as import_string  # NOQA
 
+from ..apps import EmailHijacker
+
 
 class EmailBackend(BaseEmailBackend):
 
     def __init__(self, *args, **kwargs):
         super(EmailBackend, self).__init__(*args, **kwargs)
-        self.hijacked = import_string(settings.HIJACKER_EMAIL_BACKEND)(*args, **kwargs)
+        self.hijacked = import_string(EmailHijacker.EMAIL_BACKEND)(*args, **kwargs)
 
     def open(self):
         self.hijacked.open()
@@ -25,7 +26,7 @@ class EmailBackend(BaseEmailBackend):
 
     def send_messages(self, email_messages):
         for email in email_messages:
-            email.to = (settings.HIJACKER_EMAIL_ADDRESS,)
+            email.to = (EmailHijacker.EMAIL_ADDRESS,)
             email.bcc = ()
             email.cc = ()
             email.subject = 'HIJACKED: {}'.format(email.subject)

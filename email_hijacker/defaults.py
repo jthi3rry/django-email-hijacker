@@ -1,0 +1,2 @@
+EMAIL_BACKEND = None
+EMAIL_ADDRESS = None

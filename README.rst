@@ -34,9 +34,28 @@ Installation
 
 In your development or staging ``settings.py``::
 
+
     EMAIL_BACKEND = "email_hijacker.backends.hijacker.EmailBackend"
+
     HIJACKER_EMAIL_ADDRESS = "hijacker@example.org"
     HIJACKER_EMAIL_BACKEND = "your.real.EmailBackend"
+
+
+.. note:: Django Email Hijacker uses `Django Pods <https://github.com/OohlaLabs/django-pods>`_.
+
+    It allows for prefix style settings::
+
+
+        HIJACKER_EMAIL_ADDRESS = "hijacker@example.org"
+        HIJACKER_EMAIL_BACKEND = "your.real.EmailBackend"
+
+
+    Or dictionary style settings::
+
+        HIJACKER = {
+            "EMAIL_ADDRESS": "hijacker@example.org",
+            "EMAIL_BACKEND": "your.real.EmailBackend"
+        }
 
 
 Running Tests
@@ -53,6 +72,10 @@ All contributions and comments are welcome.
 
 Change Log
 ----------
+
+v0.3
+~~~~
+* Use Django Pods for settings
 
 v0.2
 ~~~~
