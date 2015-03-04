@@ -6,8 +6,8 @@ from django.core.mail.backends.base import BaseEmailBackend
 
 try:
     from django.utils.module_loading import import_string
-except ImportError:
-    from django.utils.module_loading import import_by_path as import_string  # NOQA
+except ImportError:  # pragma: nocover
+    from django.utils.module_loading import import_by_path as import_string
 
 from ..apps import EmailHijacker
 
