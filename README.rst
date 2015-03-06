@@ -73,6 +73,10 @@ All contributions and comments are welcome.
 Change Log
 ----------
 
+v0.3.2
+~~~~~~
+* Fix #2: exclude tests package
+
 v0.3.1
 ~~~~~~
 * Switch to Semantic Versioning

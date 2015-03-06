@@ -36,11 +36,21 @@ def find_version(*file_paths):
     raise RuntimeError("Unable to find version string.")
 
 
+pypi_readme_note = """\
+.. note::
+
+   For the latest source, discussions, etc., please visit the
+   `GitHub repository <https://github.com/OohlaLabs/django-email-hijacker>`_
+"""
+
+
 setup(
     name='django-email-hijacker',
     version=find_version('email_hijacker', '__init__.py'),
     author='OohlaLabs Limited',
     author_email='packages@oohlalabs.co.nz',
+    maintainer="Thierry Jossermoz",
+    maintainer_email="thierry.jossermoz@oohlalabs.com",
     url='https://github.com/OohlaLabs/django-email-hijacker',
     packages=find_packages(),
     install_requires=[str(ir.req) for ir in parse_requirements('requirements.txt', session=uuid.uuid1())],
@@ -48,7 +58,7 @@ setup(
     cmdclass={'test': Tox},
     license='MIT',
     description='Email Hijacker for Django',
-    long_description=read('README.rst'),
+    long_description="\n\n".join([pypi_readme_note, read('README.rst')]),
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Environment :: Web Environment",
